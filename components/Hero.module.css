@@ -1,0 +1,402 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #020a33;
+  isolation: isolate;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/flota-camiones-patio-leonalval.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bgIn 1.3s ease-out both;
+}
+
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      circle at 78% 24%,
+      rgba(245, 130, 0, 0.16) 0%,
+      rgba(245, 130, 0, 0.06) 24%,
+      rgba(245, 130, 0, 0) 48%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(2, 10, 51, 0.95) 0%,
+      rgba(2, 10, 51, 0.84) 42%,
+      rgba(2, 10, 51, 0.5) 72%,
+      rgba(2, 10, 51, 0.3) 100%
+    );
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 10, 51, 0.08) 0%,
+      rgba(2, 10, 51, 0.14) 55%,
+      rgba(2, 10, 51, 0.68) 100%
+    );
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 118px 0 58px;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 735px;
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #f58200;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: #f58200;
+}
+
+.title {
+  margin: 0;
+  max-width: 760px;
+  color: #ffffff;
+  font-size: clamp(40px, 4.9vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.052em;
+  font-weight: 800;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.text {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.55;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.btn {
+  min-height: 48px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: #f58200;
+  color: #ffffff;
+}
+
+.primary:hover {
+  background: #ff9500;
+}
+
+.secondary {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.64);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.data {
+  width: min(520px, 100%);
+  margin-top: 28px;
+  border-left: 4px solid #f58200;
+  background: rgba(4, 15, 70, 0.76);
+  backdrop-filter: blur(12px);
+  animation: fadeUp 0.9s ease-out 0.22s both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dataItem {
+  padding: 17px 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dataItem:last-child {
+  border-right: none;
+}
+
+.dataLabel {
+  display: block;
+  margin-bottom: 7px;
+  color: #f58200;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dataValue {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.42;
+  font-weight: 800;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bgIn {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1100px) {
+  .content {
+    max-width: 700px;
+  }
+
+  .title {
+    font-size: clamp(39px, 5.6vw, 58px);
+  }
+}
+
+@media (max-width: 900px) {
+  .bg {
+    background-position: 62% center;
+  }
+
+  .bg::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(2, 10, 51, 0.96) 0%,
+        rgba(2, 10, 51, 0.89) 54%,
+        rgba(2, 10, 51, 0.64) 100%
+      );
+  }
+
+  .inner {
+    align-items: center;
+    justify-content: center;
+    padding: 108px 0 52px;
+  }
+
+  .content {
+    max-width: 720px;
+  }
+
+  .title {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .data {
+    grid-template-columns: 1fr;
+    width: min(480px, 100%);
+  }
+
+  .dataItem {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .dataItem:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .bg {
+    background-position: 68% center;
+  }
+
+  .inner {
+    width: min(100% - 28px, 1240px);
+    padding: 96px 0 42px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .eyebrow::before {
+    width: 34px;
+  }
+
+  .title {
+    font-size: clamp(34px, 10.8vw, 44px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .text {
+    margin-top: 20px;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  .actions {
+    width: 100%;
+    margin-top: 28px;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .data {
+    margin-top: 24px;
+  }
+
+  .dataItem {
+    padding: 16px 18px;
+  }
+
+  .dataValue {
+    font-size: 15.5px;
+  }
+}
+
+@media (max-height: 780px) and (min-width: 901px) {
+  .inner {
+    padding: 104px 0 46px;
+  }
+
+  .content {
+    max-width: 705px;
+  }
+
+  .eyebrow {
+    margin-bottom: 15px;
+  }
+
+  .title {
+    font-size: clamp(38px, 4.6vw, 58px);
+  }
+
+  .text {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .actions {
+    margin-top: 26px;
+  }
+
+  .data {
+    margin-top: 24px;
+  }
+
+  .dataItem {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 901px) {
+  .inner {
+    padding: 94px 0 38px;
+  }
+
+  .title {
+    font-size: clamp(36px, 4.3vw, 52px);
+  }
+
+  .text {
+    max-width: 620px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .actions {
+    margin-top: 22px;
+  }
+
+  .btn {
+    min-height: 46px;
+  }
+
+  .data {
+    width: min(500px, 100%);
+    margin-top: 20px;
+  }
+
+  .dataItem {
+    padding: 14px 18px;
+  }
+
+  .dataValue {
+    font-size: 15px;
+  }
+}

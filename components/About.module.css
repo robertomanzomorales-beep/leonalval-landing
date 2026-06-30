@@ -1,0 +1,415 @@
+.about {
+  position: relative;
+  width: 100%;
+  padding: 82px 0 88px;
+  background: #f5f7fa;
+  overflow: hidden;
+}
+
+.inner {
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: 66px;
+  align-items: center;
+}
+
+.content {
+  max-width: 660px;
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.visible .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 17px;
+  color: #f58200;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: #f58200;
+}
+
+.title {
+  margin: 0;
+  max-width: 650px;
+  color: #06145f;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #1e2430;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.statements {
+  margin-top: 38px;
+  display: grid;
+  gap: 24px;
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d9dee7;
+}
+
+.statement:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.statement strong {
+  color: #06145f;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.statement p {
+  margin: 0;
+  color: #5d6675;
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+.capabilities {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #d9dee7;
+  border-bottom: 1px solid #d9dee7;
+}
+
+.capabilities div {
+  min-width: 0;
+  padding: 21px 18px 21px 0;
+  border-right: 1px solid #d9dee7;
+}
+
+.capabilities div + div {
+  padding-left: 18px;
+}
+
+.capabilities div:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.capabilities strong {
+  display: block;
+  color: #06145f;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.capabilities span {
+  display: block;
+  margin-top: 8px;
+  color: #5d6675;
+  font-size: 13.5px;
+  line-height: 1.48;
+}
+
+.media {
+  position: relative;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s ease 0.12s,
+    transform 0.85s ease 0.12s;
+}
+
+.visible .media {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.media::before {
+  content: "";
+  position: absolute;
+  right: -16px;
+  top: -18px;
+  width: 120px;
+  height: 120px;
+  border-top: 4px solid #f58200;
+  border-right: 4px solid #f58200;
+  pointer-events: none;
+}
+
+.mediaTitle {
+  position: relative;
+  margin-bottom: 18px;
+  padding-left: 18px;
+  border-left: 4px solid #f58200;
+}
+
+.mediaTitle span {
+  display: block;
+  color: #f58200;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.mediaTitle strong {
+  display: block;
+  margin-top: 6px;
+  color: #06145f;
+  font-size: 23px;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.photo {
+  position: relative;
+  margin: 0;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #020a33;
+}
+
+.photoLarge {
+  grid-column: 1 / -1;
+  height: 285px;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.photoLarge img {
+  object-position: center 48%;
+}
+
+.photo:not(.photoLarge) img {
+  object-position: center 52%;
+}
+
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 10, 51, 0);
+  transition: background 0.45s ease;
+  pointer-events: none;
+}
+
+.photo:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.photo:hover::after {
+  background: rgba(2, 10, 51, 0.1);
+}
+
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 470px);
+    gap: 44px;
+  }
+
+  .title {
+    font-size: clamp(34px, 4.4vw, 48px);
+  }
+
+  .photoLarge {
+    height: 260px;
+  }
+
+  .photo {
+    height: 145px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 72px 0 78px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .content {
+    max-width: 760px;
+  }
+
+  .media {
+    max-width: 760px;
+  }
+
+  .photoLarge {
+    height: 300px;
+  }
+
+  .photo {
+    height: 170px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 58px 0 64px;
+  }
+
+  .inner {
+    width: min(100% - 28px, 1240px);
+    gap: 34px;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    font-size: 11px;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    width: 34px;
+  }
+
+  .title {
+    font-size: clamp(30px, 9.4vw, 40px);
+    line-height: 1.06;
+  }
+
+  .lead {
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .statements {
+    margin-top: 28px;
+    gap: 20px;
+  }
+
+  .statement {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-bottom: 20px;
+  }
+
+  .statement p {
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+
+  .capabilities {
+    margin-top: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .capabilities div {
+    padding: 17px 0;
+    border-right: none;
+    border-bottom: 1px solid #d9dee7;
+  }
+
+  .capabilities div + div {
+    padding-left: 0;
+  }
+
+  .capabilities div:last-child {
+    border-bottom: none;
+  }
+
+  .media::before {
+    right: -9px;
+    top: -10px;
+    width: 84px;
+    height: 84px;
+  }
+
+  .mediaTitle {
+    margin-bottom: 16px;
+  }
+
+  .mediaTitle strong {
+    font-size: 20px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .photoLarge {
+    height: 230px;
+  }
+
+  .photo {
+    height: 165px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content,
+  .media,
+  .photo img,
+  .photo::after {
+    transition: none;
+  }
+
+  .content,
+  .media {
+    opacity: 1;
+    transform: none;
+  }
+
+  .photo:hover img {
+    transform: none;
+    filter: none;
+  }
+
+  .photo:hover::after {
+    background: transparent;
+  }
+}
