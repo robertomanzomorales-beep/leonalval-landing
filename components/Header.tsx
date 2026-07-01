@@ -137,7 +137,10 @@ export default function Header() {
           <div className={styles.mobileGlow} aria-hidden="true" />
 
           <div className={styles.mobilePanel}>
-            <div className={styles.mobileLabel}>Menú principal</div>
+            <div className={styles.mobileTop}>
+              <span className={styles.mobileLabel}>Menú principal</span>
+              <span className={styles.mobileHint}>Transportes Leonalval</span>
+            </div>
 
             <nav className={styles.mobileNav} aria-label="Navegación móvil">
               {navItems.map((item, index) => (
@@ -147,11 +150,11 @@ export default function Header() {
                   onClick={(event) => handleNavClick(event, item.href)}
                   style={
                     {
-                      "--delay": `${index * 42}ms`,
+                      "--delay": `${index * 38}ms`,
                     } as React.CSSProperties
                   }
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                 </a>
               ))}
             </nav>

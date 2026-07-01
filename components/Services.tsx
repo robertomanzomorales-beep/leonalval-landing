@@ -48,8 +48,8 @@ export default function Services() {
         }
       },
       {
-        threshold: 0.16,
-        rootMargin: "0px 0px -90px 0px",
+        threshold: 0.14,
+        rootMargin: "0px 0px -80px 0px",
       }
     );
 
@@ -80,29 +80,29 @@ export default function Services() {
           </p>
         </div>
 
-        <div className={styles.grid}>
+        <div className={styles.panel}>
           {services.map((service, index) => (
             <article
-              className={styles.card}
+              className={`${styles.item} ${index === 0 ? styles.featured : ""}`}
               key={service.title}
               style={{ "--delay": `${index * 80}ms` } as React.CSSProperties}
             >
-              <div className={styles.cardTop}>
+              <div className={styles.itemTop}>
+                <span className={styles.code}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
                 <div className={styles.iconWrap}>
                   <img src={service.icon} alt="" loading="lazy" />
                 </div>
-
-                <span className={styles.number}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
               </div>
 
-              <div className={styles.cardBody}>
+              <div className={styles.itemBody}>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
               </div>
 
-              <span className={styles.cardLine} />
+              <span className={styles.itemLine} />
             </article>
           ))}
         </div>

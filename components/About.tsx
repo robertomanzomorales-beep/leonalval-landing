@@ -20,8 +20,8 @@ export default function About() {
         }
       },
       {
-        threshold: 0.18,
-        rootMargin: "0px 0px -90px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
       }
     );
 

@@ -1,9 +1,21 @@
 .services {
   position: relative;
   width: 100%;
-  padding: 88px 0 96px;
+  padding: 92px 0 96px;
   background:
-    linear-gradient(180deg, #eef2f8 0%, #f5f7fa 100%);
+    radial-gradient(
+      circle at 86% 8%,
+      rgba(245, 130, 0, 0.13) 0%,
+      rgba(245, 130, 0, 0.045) 24%,
+      rgba(245, 130, 0, 0) 52%
+    ),
+    radial-gradient(
+      circle at 8% 88%,
+      rgba(70, 110, 255, 0.13) 0%,
+      rgba(70, 110, 255, 0.04) 28%,
+      rgba(70, 110, 255, 0) 58%
+    ),
+    linear-gradient(180deg, #071244 0%, #020a33 100%);
   overflow: hidden;
 }
 
@@ -12,11 +24,29 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 88% 14%,
-      rgba(6, 20, 95, 0.08) 0%,
-      rgba(6, 20, 95, 0.03) 28%,
-      rgba(6, 20, 95, 0) 54%
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.018) 32%,
+      rgba(255, 255, 255, 0) 66%
+    );
+  pointer-events: none;
+}
+
+.services::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48px;
+  width: min(1320px, calc(100% - 40px));
+  height: 1px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(245, 130, 0, 0.7) 0%,
+      rgba(245, 130, 0, 0.16) 22%,
+      rgba(255, 255, 255, 0.12) 100%
     );
   pointer-events: none;
 }
@@ -30,15 +60,15 @@
 
 .header {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
-  gap: 54px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.52fr);
+  gap: 56px;
   align-items: end;
-  margin-bottom: 38px;
+  margin-bottom: 42px;
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(24px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 0.75s ease,
+    transform 0.75s ease;
 }
 
 .visible .header {
@@ -47,18 +77,18 @@
 }
 
 .heading {
-  max-width: 780px;
+  max-width: 800px;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 17px;
+  margin-bottom: 16px;
   color: #f58200;
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 850;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
@@ -71,180 +101,239 @@
 
 .title {
   margin: 0;
-  max-width: 780px;
-  color: #06145f;
+  max-width: 800px;
+  color: #ffffff;
   font-size: clamp(34px, 4vw, 54px);
   line-height: 1.04;
   letter-spacing: -0.045em;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .intro {
   margin: 0;
-  color: #5d6675;
+  max-width: 480px;
+  color: rgba(255, 255, 255, 0.72);
   font-size: 17px;
   line-height: 1.65;
   font-weight: 500;
 }
 
-.grid {
+.panel {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  overflow: hidden;
+  border-radius: 4px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.075) 0%,
+      rgba(255, 255, 255, 0.035) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.card {
+.item {
   position: relative;
-  min-height: 336px;
-  padding: 24px 22px 28px;
+  min-height: 352px;
+  padding: 26px 22px 28px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 3px;
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
   background:
     linear-gradient(
-      145deg,
-      #06145f 0%,
-      #04104a 48%,
-      #020a33 100%
+      180deg,
+      rgba(3, 12, 54, 0.38) 0%,
+      rgba(3, 12, 54, 0.72) 100%
     );
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(28px);
   transition:
-    opacity 0.75s ease var(--delay),
-    transform 0.75s ease var(--delay),
-    background 0.35s ease,
-    border-color 0.35s ease;
+    opacity 0.72s ease var(--delay),
+    transform 0.72s ease var(--delay),
+    background 0.32s ease,
+    box-shadow 0.32s ease;
 }
 
-.visible .card {
+.item:last-child {
+  border-right: none;
+}
+
+.visible .item {
   opacity: 1;
   transform: translateY(0);
 }
 
-.card::before {
+.item::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
     radial-gradient(
-      circle at 90% 8%,
-      rgba(245, 130, 0, 0.2) 0%,
-      rgba(245, 130, 0, 0.08) 28%,
+      circle at 86% 16%,
+      rgba(245, 130, 0, 0.16) 0%,
+      rgba(245, 130, 0, 0.055) 28%,
       rgba(245, 130, 0, 0) 58%
     );
-  opacity: 0.72;
-  transition: opacity 0.35s ease;
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.32s ease;
 }
 
-.card::after {
+.item::after {
   content: "";
   position: absolute;
-  inset: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 3px;
-  pointer-events: none;
-  transition: border-color 0.35s ease;
+  left: 22px;
+  right: 22px;
+  top: 0;
+  height: 3px;
+  background:
+    linear-gradient(
+      90deg,
+      #f58200 0%,
+      rgba(245, 130, 0, 0.58) 44%,
+      rgba(245, 130, 0, 0) 100%
+    );
+  transform: scaleX(0.38);
+  transform-origin: left;
+  transition: transform 0.32s ease;
 }
 
-.cardTop {
+.featured {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(245, 130, 0, 0.1) 0%,
+      rgba(3, 12, 54, 0.78) 72%,
+      rgba(3, 12, 54, 0.92) 100%
+    );
+}
+
+.featured::after {
+  transform: scaleX(0.75);
+}
+
+.itemTop {
   position: relative;
   z-index: 2;
+  min-height: 58px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
+}
+
+.code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.code::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: rgba(245, 130, 0, 0.7);
 }
 
 .iconWrap {
-  width: 76px;
-  height: 76px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.085);
-  border-left: 4px solid #f58200;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 3px 0 0 rgba(245, 130, 0, 0.95),
+    0 12px 26px rgba(0, 0, 0, 0.13);
   transition:
-    transform 0.35s ease,
-    background 0.35s ease;
+    transform 0.32s ease,
+    background 0.32s ease,
+    border-color 0.32s ease;
 }
 
 .iconWrap img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+  width: 34px;
+  height: 34px;
   display: block;
+  object-fit: contain;
+  filter: brightness(1.18) contrast(1.06);
 }
 
-.number {
-  color: rgba(255, 255, 255, 0.18);
-  font-size: 32px;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-}
-
-.cardBody {
+.itemBody {
   position: relative;
   z-index: 2;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
-.cardBody h3 {
+.itemBody h3 {
   margin: 0;
   color: #ffffff;
-  font-size: 21px;
-  line-height: 1.13;
+  font-size: 20px;
+  line-height: 1.12;
   letter-spacing: -0.035em;
-  font-weight: 800;
+  font-weight: 850;
   text-wrap: balance;
 }
 
-.cardBody p {
-  margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 14.6px;
-  line-height: 1.56;
+.itemBody p {
+  margin: 17px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14.35px;
+  line-height: 1.58;
+  font-weight: 500;
 }
 
-.cardLine {
+.itemLine {
   position: absolute;
   left: 22px;
   right: 22px;
   bottom: 0;
-  height: 4px;
+  height: 3px;
   background: #f58200;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.36s ease;
+  transition: transform 0.34s ease;
 }
 
-.card:hover {
+.item:hover {
   transform: translateY(-6px);
   background:
     linear-gradient(
-      145deg,
-      #071974 0%,
-      #06145f 45%,
-      #020a33 100%
+      180deg,
+      rgba(9, 27, 105, 0.84) 0%,
+      rgba(3, 12, 54, 0.98) 100%
     );
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 130, 0, 0.28),
+    0 24px 48px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover::before {
+.item:hover::before {
   opacity: 1;
 }
 
-.card:hover::after {
-  border-color: rgba(245, 130, 0, 0.42);
+.item:hover::after {
+  transform: scaleX(1);
 }
 
-.card:hover .iconWrap {
+.item:hover .iconWrap {
   transform: translateY(-3px);
   background: rgba(245, 130, 0, 0.16);
+  border-color: rgba(245, 130, 0, 0.34);
 }
 
-.card:hover .cardLine {
+.item:hover .itemLine {
   transform: scaleX(1);
 }
 
@@ -253,10 +342,10 @@
   display: flex;
   justify-content: center;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(22px);
   transition:
-    opacity 0.8s ease 0.42s,
-    transform 0.8s ease 0.42s;
+    opacity 0.75s ease 0.42s,
+    transform 0.75s ease 0.42s;
 }
 
 .visible .ctaWrap {
@@ -271,16 +360,18 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border-radius: 3px;
-  background: #f58200;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #f58200 0%, #ff9a22 100%);
   color: #ffffff;
   font-size: 15px;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 850;
   text-decoration: none;
+  box-shadow: 0 18px 38px rgba(245, 130, 0, 0.26);
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 .whatsappButton img {
@@ -292,7 +383,8 @@
 
 .whatsappButton:hover {
   transform: translateY(-3px);
-  background: #ff9500;
+  filter: brightness(1.04);
+  box-shadow: 0 22px 44px rgba(245, 130, 0, 0.32);
 }
 
 @media (max-width: 1280px) {
@@ -300,54 +392,69 @@
     width: min(1240px, calc(100% - 40px));
   }
 
-  .grid {
-    gap: 14px;
+  .item {
+    min-height: 356px;
+    padding: 25px 19px 27px;
   }
 
-  .card {
-    padding: 23px 20px 27px;
+  .itemBody h3 {
+    font-size: 18.6px;
   }
 
-  .cardBody h3 {
-    font-size: 19px;
+  .itemBody p {
+    font-size: 13.9px;
   }
 
-  .cardBody p {
-    font-size: 14.2px;
+  .iconWrap {
+    width: 45px;
+    height: 45px;
   }
 
   .iconWrap img {
-    width: 58px;
-    height: 58px;
+    width: 31px;
+    height: 31px;
   }
 }
 
 @media (max-width: 1180px) {
-  .grid {
+  .panel {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .card {
-    min-height: 300px;
+  .item {
+    min-height: 292px;
   }
 
-  .cardBody h3 {
+  .item:nth-child(3n) {
+    border-right: none;
+  }
+
+  .item:nth-child(n + 4) {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .itemBody h3 {
     font-size: 21px;
   }
 
-  .cardBody p {
-    font-size: 14.8px;
+  .itemBody p {
+    font-size: 14.7px;
+  }
+
+  .iconWrap {
+    width: 50px;
+    height: 50px;
   }
 
   .iconWrap img {
-    width: 58px;
-    height: 58px;
+    width: 35px;
+    height: 35px;
   }
 }
 
 @media (max-width: 900px) {
   .services {
-    padding: 78px 0 84px;
+    padding: 76px 0 84px;
   }
 
   .header {
@@ -360,104 +467,143 @@
     max-width: 680px;
   }
 
-  .grid {
+  .panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .card {
-    min-height: 285px;
+  .item {
+    min-height: 286px;
+  }
+
+  .item:nth-child(3n) {
+    border-right: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .item:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
   }
 }
 
 @media (max-width: 640px) {
   .services {
-    padding: 64px 0 70px;
+    padding: 54px 0 64px;
+  }
+
+  .services::after {
+    top: 32px;
+    width: min(100% - 28px, 1240px);
   }
 
   .inner {
     width: min(100% - 28px, 1240px);
   }
 
+  .header {
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
   .eyebrow {
-    margin-bottom: 14px;
-    font-size: 11px;
-    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 10px;
+    gap: 9px;
+    letter-spacing: 0.12em;
   }
 
   .eyebrow::before {
-    width: 34px;
+    width: 30px;
+    height: 2px;
   }
 
   .title {
-    font-size: clamp(30px, 9.4vw, 40px);
+    max-width: 96%;
+    font-size: clamp(25px, 7.4vw, 32px);
     line-height: 1.06;
+    letter-spacing: -0.035em;
   }
 
   .intro {
-    font-size: 16px;
-    line-height: 1.6;
+    max-width: 96%;
+    font-size: 14.5px;
+    line-height: 1.55;
   }
 
-  .header {
-    margin-bottom: 30px;
-  }
-
-  .grid {
+  .panel {
     grid-template-columns: 1fr;
-    gap: 14px;
   }
 
-  .card {
+  .item,
+  .item:nth-child(3n),
+  .item:nth-child(2n) {
     min-height: auto;
-    padding: 22px 20px 25px;
+    padding: 18px 18px 20px;
+    border-right: none;
   }
 
-  .cardTop {
-    align-items: center;
+  .item:nth-child(n + 2) {
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .itemTop {
+    min-height: 46px;
+  }
+
+  .code {
+    font-size: 11px;
+  }
+
+  .code::after {
+    width: 20px;
   }
 
   .iconWrap {
-    width: 68px;
-    height: 68px;
+    width: 46px;
+    height: 46px;
   }
 
   .iconWrap img {
-    width: 52px;
-    height: 52px;
+    width: 32px;
+    height: 32px;
   }
 
-  .number {
-    font-size: 28px;
+  .itemBody {
+    margin-top: 14px;
   }
 
-  .cardBody {
-    margin-top: 24px;
+  .itemBody h3 {
+    font-size: 19px;
+    line-height: 1.12;
   }
 
-  .cardBody h3 {
-    font-size: 21px;
+  .itemBody p {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.52;
   }
 
-  .cardBody p {
-    margin-top: 16px;
-    font-size: 14.8px;
-    line-height: 1.56;
+  .item::after {
+    left: 18px;
+    right: 18px;
   }
 
-  .cardLine {
-    left: 20px;
-    right: 20px;
+  .itemLine {
+    left: 18px;
+    right: 18px;
   }
 
   .ctaWrap {
-    margin-top: 28px;
+    margin-top: 26px;
   }
 
   .whatsappButton {
     width: 100%;
-    min-height: 52px;
+    min-height: 50px;
     padding: 0 18px;
-    font-size: 14.5px;
+    font-size: 14px;
   }
 
   .whatsappButton img {
@@ -466,25 +612,51 @@
   }
 }
 
+@media (max-width: 390px) {
+  .services {
+    padding: 48px 0 58px;
+  }
+
+  .title {
+    font-size: clamp(23px, 6.9vw, 29px);
+  }
+
+  .intro {
+    font-size: 14px;
+  }
+
+  .item {
+    padding: 17px 16px 19px;
+  }
+
+  .itemBody h3 {
+    font-size: 18px;
+  }
+
+  .itemBody p {
+    font-size: 13.6px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header,
-  .card,
+  .item,
   .iconWrap,
-  .cardLine,
+  .itemLine,
   .ctaWrap,
   .whatsappButton {
     transition: none;
   }
 
   .header,
-  .card,
+  .item,
   .ctaWrap {
     opacity: 1;
     transform: none;
   }
 
-  .card:hover,
-  .card:hover .iconWrap,
+  .item:hover,
+  .item:hover .iconWrap,
   .whatsappButton:hover {
     transform: none;
   }
