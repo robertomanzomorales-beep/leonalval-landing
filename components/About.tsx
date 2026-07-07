@@ -106,8 +106,8 @@ export default function About() {
 
             <figure className={styles.photo}>
               <img
-                src="/equipo-modular-transporte-carga-pesada-puerto.webp"
-                alt="Equipo modular para transporte de carga pesada"
+                src="/portada-1.webp"
+                alt="Transporte de carga sobredimensionada de Transportes Leonalval"
                 loading="lazy"
                 decoding="async"
               />

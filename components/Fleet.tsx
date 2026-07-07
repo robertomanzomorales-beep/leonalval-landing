@@ -50,7 +50,7 @@ const fleetItems = [
     title: "Estanque de ácido sulfúrico",
     description:
       "Equipo especializado para transporte de líquido industrial con altos requisitos de seguridad.",
-    image: "/estanque-de-acido-sulfurico.webp",
+    image: "/estanque-acido.webp",
   },
   {
     title: "Equipo modular",

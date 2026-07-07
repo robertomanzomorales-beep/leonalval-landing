@@ -85,7 +85,9 @@ export default function Footer() {
 
               <span>
                 <small>Ubicación</small>
-                <strong>La Portada, Antofagasta</strong>
+                <strong>
+                  Transversal 18-0500 Lote A, La Portada, Antofagasta.
+                </strong>
               </span>
             </a>
 
