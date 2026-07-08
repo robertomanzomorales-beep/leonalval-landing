@@ -97,8 +97,8 @@ export default function About() {
           <div className={styles.gallery}>
             <figure className={`${styles.photo} ${styles.photoLarge}`}>
               <img
-                src="/gruas-horquilla-equipos-disponibles.webp"
-                alt="Grúas horquilla disponibles de Transportes Leonalval"
+                src="/portada-1.webp"
+                alt="Transporte de carga sobredimensionada de Transportes Leonalval"
                 loading="lazy"
                 decoding="async"
               />
@@ -106,8 +106,8 @@ export default function About() {
 
             <figure className={styles.photo}>
               <img
-                src="/portada-1.webp"
-                alt="Transporte de carga sobredimensionada de Transportes Leonalval"
+                src="/gruas-horquilla-equipos-disponibles.webp"
+                alt="Grúas horquilla disponibles de Transportes Leonalval"
                 loading="lazy"
                 decoding="async"
               />
